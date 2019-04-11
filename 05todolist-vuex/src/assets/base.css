@@ -1,0 +1,40 @@
+#container {
+    width: 50%;
+    margin: 50px auto;
+}
+
+.form-control {
+    width: 200px;
+    display: inline-block;
+}
+
+#todolist {
+    margin-top: 30px;
+    position: relative;
+}
+
+.todolist-header {
+    background-color: #ccc;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    padding: 0 15px;
+}
+
+.btn {
+    float: right;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.active {
+    background-color: rgb(0, 123, 255);
+}
+
+.todoItem {
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}

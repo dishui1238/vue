@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<style>
+  .colorRed {
+    color: red;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <!-- 双向数据绑定v-model -->
+    <input type="text" v-model="message">
+    <p class="colorRed">{{message}}</p>
+    <p v-bind:class="{colorRed:isActive}">1111</p>
+
+    <a href="https://google.com">Google</a>
+    <button v-on:click='test'>test</button>
+
+    <hr>
+    <h2>v-if测试</h2>
+    <p v-if='ok'>成功了</p>
+    <p v-else>失败了</p>
+    <button @click="ok=!ok">切换</button>
+
+    <h2>v-for遍历</h2>
+    <ul>
+      <li v-for='(person,index) in person' :key="index">
+        {{person.name}}=={{person.age}}=={{person.gender}}
+        <button @click='deleteP(index)'>删除</button>
+        <button @click="updateP(index,{name:'cat',age:1,gender:'male'})">更新</button>
+      </li>
+    </ul>
+
+
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello vue!',
+        isActive: true,
+        ok: true,
+        person: [{
+            name: 'Tom',
+            age: 22,
+            gender: '男'
+          },
+          {
+            name: 'Lisa',
+            age: 22,
+            gender: '女'
+          },
+          {
+            name: 'Andy',
+            age: 22,
+            gender: '男'
+          },
+        ]
+      },
+      methods: {
+        test() {
+          alert('test')
+        },
+        deleteP(index) {
+          this.person.splice(index, 1)
+        },
+        updateP(index,newP){
+          // this.person[index] = newP  不会触发更新，Vue 不能检测对象属性的添加或删除
+          this.person.splice(index,1,newP)
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
