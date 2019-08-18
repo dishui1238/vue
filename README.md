@@ -280,4 +280,4 @@ actions: {
 1. $store.dispatch('xxx')
 2. mapActions 辅助函数:将组件的 methods 映射为 store.dispatch 调用
 
-
+###test git
